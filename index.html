@@ -1,0 +1,937 @@
+<!doctype html>
+
+<html lang="pt-br" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="description" content="Disparador Elite Pro - Sistema Enterprise WhatsApp" />
+  <meta name="theme-color" content="#0a0e14" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Disparador Pro" />
+  <title>Disparador Elite Pro</title>
+
+<link rel="manifest" href="manifest.json" />
+<!-- Favicon otimizado -->
+<link rel="icon" type="image/png" sizes="32x32" href="https://lhujzzoqebgjbsnezmrt.supabase.co/storage/v1/object/public/Photos/logomarcat3c0t4zfavicom.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="https://lhujzzoqebgjbsnezmrt.supabase.co/storage/v1/object/public/Photos/logomarcat3c0t4zfavicom.png" />
+  
+<!-- Apple iOS -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://lhujzzoqebgjbsnezmrt.supabase.co/storage/v1/object/public/Photos/logomarcat3c0t4zfavicom.png" />
+  
+<!-- Android PWA -->
+<link rel="icon" type="image/png" sizes="512x512" href="https://lhujzzoqebgjbsnezmrt.supabase.co/storage/v1/object/public/Photos/logomarcat3c0t4zfavicom.png" />
+  
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+
+<style>
+    :root {
+      --bg-primary: #0a0e14;
+      --bg-secondary: #151922;
+      --bg-card: #1a1f2e;
+      --border-primary: #2a3142;
+      --text-primary: #e8eaed;
+      --text-secondary: #9aa0a9;
+      --accent-cyan: #00d9ff;
+      --accent-green: #10b981;
+      --accent-error: #ef4444;
+      --accent-warning: #f59e0b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container-elite {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    .header-elite {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem;
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .logo-elite {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 25px rgba(0, 217, 255, 0.6)) drop-shadow(0 0 40px rgba(16, 185, 129, 0.4));
+      animation: logoFloat 3s ease-in-out infinite;
+      transition: all 0.3s;
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .title-elite {
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle-elite {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-top: 0.375rem;
+      font-weight: 500;
+    }
+
+    .theme-toggle-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      color: var(--text-primary);
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.25rem;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
+    .theme-toggle-btn:hover {
+      background: var(--bg-primary);
+      border-color: var(--accent-cyan);
+      transform: rotate(180deg);
+    }
+
+    .stats-grid-elite {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-card-elite {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .stat-card-elite:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-cyan);
+    }
+
+    .stat-label-elite {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value-elite {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .stat-value-elite.success { color: var(--accent-green); }
+    .stat-value-elite.error { color: var(--accent-error); }
+    .stat-value-elite.warning { color: var(--accent-warning); }
+    .stat-value-elite.info { color: var(--accent-cyan); }
+
+    .card-elite {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label-elite {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .input-elite {
+      width: 100%;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-primary);
+      color: var(--text-primary);
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      transition: all 0.2s;
+      min-height: 44px;
+    }
+
+    .input-elite:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+    }
+
+    .input-elite::placeholder {
+      color: var(--text-secondary);
+      opacity: 0.6;
+    }
+
+    textarea.input-elite {
+      font-family: ui-monospace, monospace;
+      resize: vertical;
+    }
+
+    .input-help-elite {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+
+    .btn-elite {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 44px;
+      white-space: nowrap;
+    }
+
+    .btn-primary-elite {
+      background: linear-gradient(135deg, var(--accent-green), #059669);
+      color: white;
+    }
+
+    .btn-primary-elite:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-secondary-elite {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      color: var(--text-primary);
+    }
+
+    .btn-secondary-elite:hover {
+      background: var(--bg-primary);
+      border-color: var(--accent-cyan);
+    }
+
+    .btn-elite:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .progress-elite {
+      height: 8px;
+      background: var(--bg-primary);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .progress-bar-elite {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+      transition: width 0.3s;
+    }
+
+    .table-elite {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    .table-elite thead th {
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      padding: 0.75rem;
+      text-align: left;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+    .table-elite tbody tr {
+      border-bottom: 1px solid var(--border-primary);
+    }
+
+    .table-elite tbody tr:hover {
+      background: var(--bg-card);
+    }
+
+    .table-elite tbody td {
+      padding: 0.75rem;
+    }
+
+    .modal-overlay-elite {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+
+    .modal-content-elite {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .log-elite {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-primary);
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: ui-monospace, monospace;
+      font-size: 0.75rem;
+      max-height: 300px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+
+    .badge-elite {
+      display: inline-block;
+      padding: 0.375rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge-success { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+    .badge-error { background: rgba(239, 68, 68, 0.2); color: var(--accent-error); }
+    .badge-warning { background: rgba(245, 158, 11, 0.2); color: var(--accent-warning); }
+    .badge-info { background: rgba(0, 217, 255, 0.2); color: var(--accent-cyan); }
+
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+    .mb-3 { margin-bottom: 1.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .flex { display: flex; }
+    .flex-between { justify-content: space-between; }
+    .flex-center { align-items: center; }
+    .gap-2 { gap: 1rem; }
+
+    /* MOBILE */
+    @media (max-width: 576px) {
+      .container-elite { padding: 1rem; }
+      .header-elite { flex-direction: column; align-items: center; text-align: center; padding: 1.5rem 1rem; gap: 1rem; }
+      .header-left { flex-direction: column; align-items: center; gap: 1rem; }
+      .logo-elite { width: 80px; height: 80px; }
+      .title-elite { font-size: 1.25rem; }
+      .subtitle-elite { font-size: 0.75rem; }
+      .stats-grid-elite { grid-template-columns: 1fr; gap: 0.75rem; }
+      .stat-card-elite { padding: 1rem; }
+      .stat-value-elite { font-size: 1.75rem; }
+      .card-elite { padding: 1rem; border-radius: 8px; }
+      .flex.gap-2 { flex-direction: column; gap: 0.75rem !important; }
+      .btn-elite { width: 100%; justify-content: center; }
+      .modal-content-elite { padding: 1.5rem; width: 95%; }
+      .log-elite { font-size: 0.6875rem; max-height: 200px; }
+    }
+
+    /* TABLET */
+    @media (min-width: 577px) and (max-width: 768px) {
+      .logo-elite { width: 100px; height: 100px; }
+      .title-elite { font-size: 1.5rem; }
+      .stats-grid-elite { grid-template-columns: repeat(2, 1fr); }
+      .flex.gap-2 { flex-wrap: wrap; }
+      .btn-elite { flex: 1 1 calc(50% - 0.5rem); min-width: 120px; }
+    }
+
+    /* DESKTOP */
+    @media (min-width: 769px) {
+      .stats-grid-elite { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* TOUCH DEVICES */
+    @media (hover: none) {
+      .logo-elite:hover { transform: none; }
+      .stat-card-elite:hover { transform: none; }
+      .btn-primary-elite:hover { transform: none; }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container-elite">
+
+    <!-- Header -->
+    <div class="header-elite">
+      <div class="header-left">
+        <img src="https://dildpbhnplvynguniwzs.supabase.co/storage/v1/object/public/produtos/logomarca%20para%20n8n%20wbc6.png" alt="Logo" class="logo-elite"/>
+        <div>
+          <h1 class="title-elite">Disparador Elite Pro</h1>
+          <p class="subtitle-elite">Enterprise WhatsApp Automation System</p>
+        </div>
+      </div>
+      <button id="themeToggle" class="theme-toggle-btn">🌓</button>
+    </div>
+    
+    <!-- Stats Dashboard -->
+    <div class="stats-grid-elite">
+      <div class="stat-card-elite">
+        <div class="stat-label-elite">Enviados</div>
+        <div class="stat-value-elite success" id="statSuccess">0</div>
+      </div>
+      <div class="stat-card-elite">
+        <div class="stat-label-elite">Falhas</div>
+        <div class="stat-value-elite error" id="statFail">0</div>
+      </div>
+      <div class="stat-card-elite">
+        <div class="stat-label-elite">Pendentes</div>
+        <div class="stat-value-elite warning" id="statPending">0</div>
+      </div>
+      <div class="stat-card-elite">
+        <div class="stat-label-elite">Taxa Sucesso</div>
+        <div class="stat-value-elite info" id="statRate">100%</div>
+      </div>
+    </div>
+    
+    <!-- Main Card -->
+    <div class="card-elite">
+    
+      <div class="mb-3">
+        <label class="form-label-elite">Instâncias WhatsApp</label>
+        <textarea id="instancias" class="input-elite" rows="4" placeholder="instancia-01&#10;instancia-02&#10;instancia-03"></textarea>
+        <div class="input-help-elite">💡 Use <code>nome|peso</code> para modo ponderado</div>
+      </div>
+    
+      <div class="mb-3">
+        <label class="form-label-elite">Modo de Distribuição</label>
+        <select id="mode" class="input-elite">
+          <option value="random">🎲 Aleatório</option>
+          <option value="rr">🔄 Round-robin</option>
+          <option value="weighted">⚖️ Pesos</option>
+        </select>
+      </div>
+    
+      <div class="mb-3">
+        <label class="form-label-elite">Números de Telefone</label>
+        <textarea id="numbers" class="input-elite" rows="5" placeholder="Ex: 559999999999"></textarea>
+        <div class="input-help-elite">Formato: código país + DDD + número</div>
+      </div>
+    
+      <div class="mb-3">
+        <label class="form-label-elite">Arquivo CSV</label>
+        <input id="csvFile" type="file" class="input-elite" accept=".csv,.tsv,.txt"/>
+        <div class="flex gap-2 mt-2">
+          <button id="previewCsvBtn" class="btn-secondary-elite btn-elite">📊 Pré-visualizar</button>
+          <button id="autoTestCsvBtn" class="btn-secondary-elite btn-elite">🧪 Auto-testes</button>
+        </div>
+        <div id="csvPreview" class="mt-2" style="display:none;">
+          <div class="input-help-elite mb-1">Prévia (até 10 linhas)</div>
+          <div style="overflow-x:auto;">
+            <table class="table-elite">
+              <thead><tr><th>Empresa</th><th>Telefone</th></tr></thead>
+              <tbody id="csvPreviewBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="input-help-elite">Detecta telefone e empresa/nome (50+ variações)</div>
+      </div>
+    
+      <div class="flex gap-2 mb-3">
+        <div style="flex:1;">
+          <label class="form-label-elite">Delay Mínimo (s)</label>
+          <input id="minDelay" type="number" class="input-elite" min="3" value="3"/>
+        </div>
+        <div style="flex:1;">
+          <label class="form-label-elite">Delay Máximo (s)</label>
+          <input id="maxDelay" type="number" class="input-elite" min="3" value="10"/>
+        </div>
+        <div style="flex:1;">
+          <label class="form-label-elite">Quantidade</label>
+          <input id="qtyPerNumber" type="number" class="input-elite" min="1" max="10" value="1"/>
+        </div>
+      </div>
+    
+      <div class="mb-3">
+        <label class="form-label-elite">Tipo de Mensagem</label>
+        <select id="msgType" class="input-elite">
+          <option value="texto">📝 Texto</option>
+          <option value="arquivo">📎 Arquivo/Link</option>
+        </select>
+      </div>
+    
+      <div class="mb-3">
+        <label class="form-label-elite">Conteúdo</label>
+        <textarea id="messageInput" class="input-elite" rows="4" placeholder="Digite o texto ou cole URL..."></textarea>
+        <div class="input-help-elite"><span id="charCount">0</span> caracteres</div>
+      </div>
+    
+      <div class="mb-3">
+        <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;">
+          <input type="checkbox" id="useAI" style="width:18px;height:18px;cursor:pointer;"/>
+          <span class="form-label-elite" style="margin:0;">🤖 Usar IA para personalização</span>
+        </label>
+      </div>
+    
+      <div class="flex gap-2 mb-3">
+        <button id="previewBtn" class="btn-secondary-elite btn-elite">👁️ Pré-visualizar</button>
+        <button id="sendBtn" class="btn-primary-elite btn-elite">🚀 Disparar Agora</button>
+        <button id="cancelBtn" class="btn-secondary-elite btn-elite" disabled>⏹️ Cancelar</button>
+      </div>
+    
+      <div>
+        <div class="flex flex-between flex-center mb-1">
+          <span style="font-size:0.875rem;color:var(--text-secondary);">Progresso</span>
+          <span id="progressText" style="font-size:0.875rem;font-weight:700;">0%</span>
+        </div>
+        <div class="progress-elite">
+          <div id="progressBar" class="progress-bar-elite" style="width:0%;"></div>
+        </div>
+        <div style="margin-top:0.75rem;font-size:0.875rem;color:var(--text-secondary);">
+          <span id="statusLine">Aguardando disparo...</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Log Card -->
+    <div class="card-elite">
+      <div class="flex flex-between flex-center mb-2">
+        <h3 style="font-size:1.125rem;font-weight:700;margin:0;">📋 Log de Operações</h3>
+        <div class="flex gap-2">
+          <span id="logStatus" class="badge-elite badge-info">Pronto</span>
+          <button id="downloadLog" class="btn-secondary-elite btn-elite" style="padding:0.5rem 1rem;">💾</button>
+          <button id="clearLog" class="btn-secondary-elite btn-elite" style="padding:0.5rem 1rem;">🗑️</button>
+        </div>
+      </div>
+      <pre id="log" class="log-elite"></pre>
+    </div>
+
+</div>
+
+<!-- Modal -->
+
+<div id="previewModal" class="modal-overlay-elite">
+    <div class="modal-content-elite">
+      <h3 style="margin-bottom:1rem;">📋 Confirmação de Disparo</h3>
+      <div id="previewContent" style="margin-bottom:1.5rem;"></div>
+      <div class="flex gap-2" style="justify-content:flex-end;">
+        <button id="previewCancelBtn" class="btn-secondary-elite btn-elite">Cancelar</button>
+        <button id="previewConfirmBtn" class="btn-primary-elite btn-elite">✅ Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+    const WEBHOOK_URL = "https://n8noraclefull.t3c0t4z.shop/webhook/ativar-disparador_upgrade";
+    const $ = (sel) => document.querySelector(sel);
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    const randBetween = (min, max) => { if (max < min) [min, max] = [max, min]; return Math.floor(Math.random() * (max - min + 1)) + min; };
+    const parseLines = (raw) => raw.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+    const normalizePhone = (s) => String(s||"").replace(/[^\d+]/g,'').replace(/^00/,'+');
+    const sanitize = (str) => String(str||"").replace(/[<>"'&]/g, c => ({'<':'<','>':'>','"':'"',"'":'&#39;','&':'&'}[c]));
+
+    let stats = { success: 0, fail: 0, pending: 0, total: 0 };
+    let csvNumbers = [];
+    let cancelFlag = false;
+    let rrIdx = 0;
+
+    function updateStats(type) {
+      if (type === 'success') stats.success++;
+      if (type === 'fail') stats.fail++;
+      stats.pending = Math.max(0, stats.total - stats.success - stats.fail);
+      $('#statSuccess').textContent = stats.success;
+      $('#statFail').textContent = stats.fail;
+      $('#statPending').textContent = stats.pending;
+      const rate = stats.total > 0 ? Math.round((stats.success / (stats.success + stats.fail || 1)) * 100) : 100;
+      $('#statRate').textContent = rate + '%';
+    }
+
+    function resetStats(total) { stats = { success: 0, fail: 0, pending: total, total }; updateStats(); }
+
+    function setProgress(done, total){
+      const pct = total ? Math.round((done/total)*100) : 0;
+      $('#progressBar').style.width = pct + "%";
+      $('#progressText').textContent = pct + "%";
+    }
+
+    function logLine(text, type = 'info'){
+      const el = $('#log');
+      const ts = new Date().toLocaleTimeString('pt-BR');
+      const icon = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️' }[type] || 'ℹ️';
+      el.textContent += `[${ts}] ${icon} ${text}\n`;
+      el.scrollTop = el.scrollHeight;
+    }
+
+    function setBusy(b){
+      $('#sendBtn').disabled = b;
+      $('#cancelBtn').disabled = !b;
+      $('#previewBtn').disabled = b;
+    }
+
+    function validateInputs() {
+      const nums = collectNumbers();
+      const minDelay = parseInt($('#minDelay').value || "0", 10);
+      const maxDelay = parseInt($('#maxDelay').value || "0", 10);
+      const msgValue = $('#messageInput').value.trim();
+      const qty = parseInt($('#qtyPerNumber').value || "1", 10);
+
+      if (!nums.length) { alert("⚠️ Forneça pelo menos 1 número."); return false; }
+      if (minDelay < 3) { alert("⚠️ Delay mínimo: 3s"); return false; }
+      if (maxDelay < minDelay) { alert("⚠️ Delay máximo deve ser maior que mínimo."); return false; }
+      if (!msgValue) { alert("⚠️ Campo de mensagem vazio."); return false; }
+      if (msgValue.length > 2000 && !confirm(`ℹ️ Mensagem tem ${msgValue.length} chars. Continuar?`)) return false;
+      if (qty < 1 || qty > 10) { alert("⚠️ Quantidade entre 1 e 10."); return false; }
+
+      const totalSends = nums.length * qty;
+      if (totalSends > 250 && !confirm(`⚠️ ${totalSends} msgs excedem 250/dia. Risco de bloqueio. Continuar?`)) return false;
+      return true;
+    }
+
+    const norm = (str) => String(str||"").normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,'').replace(/[^a-z0-9_]/g,'');
+    const looksLikePhone = (v) => { const digits = String(v||"").replace(/\D/g,''); return digits.length >= 8 && digits.length <= 15; };
+
+    function detectDelimRFC(text){
+      const sample = text.split(/\r?\n/).slice(0, 50).join('\n');
+      const counts = { ',':0, ';':0, '\t':0 };
+      let inQuotes = false;
+      for (let i=0; i<sample.length; i++){
+        const ch = sample[i];
+        if (ch === '"'){ if (inQuotes && sample[i+1] === '"'){ i++; } else { inQuotes = !inQuotes; } continue; }
+        if (!inQuotes && (ch === ',' || ch === ';' || ch === '\t')) counts[ch]++;
+      }
+      const best = Object.entries(counts).sort((a,b)=>b[1]-a[1])[0];
+      return best && best[1] > 0 ? best[0] : ',';
+    }
+
+    function parseCSV_RFC4180(text, delim){
+      const rows = [];
+      let row = [], field = '';
+      let i = 0, inQuotes = false;
+      while (i < text.length){
+        const ch = text[i];
+        if (ch === '"'){ if (inQuotes && text[i+1] === '"'){ field += '"'; i += 2; continue; } inQuotes = !inQuotes; i++; continue; }
+        if (!inQuotes && (ch === delim)) { row.push(field); field=''; i++; continue; }
+        if (!inQuotes && (ch === '\n')) { row.push(field); rows.push(row); row = []; field=''; i++; continue; }
+        if (!inQuotes && (ch === '\r')) { i++; continue; }
+        field += ch; i++;
+      }
+      row.push(field); rows.push(row);
+      return rows;
+    }
+
+    function detectColumns(headerRow, rows) {
+      const headers = headerRow.map(h => norm(h.replace(/^\uFEFF/,'')));
+      const phoneKeys = ['telefone','phone','celular','mobile','whatsapp','numero','número','tel','contact','contato','fone','cell'];
+      const empresaKeys = ['empresa','nome','cliente','razaosocial','razão','nomefantasia','fantasia','companhia','usuario','usuário','firma','negocio','perfil','profile','company','name','business','username','user','client','customer'];
+
+      let idxTel = -1, idxEmpresa = -1;
+      headers.forEach((h, i) => {
+        if (idxTel === -1 && phoneKeys.includes(h)) idxTel = i;
+        if (idxEmpresa === -1 && empresaKeys.includes(h)) idxEmpresa = i;
+      });
+
+      if (idxTel === -1 && rows.length) {
+        const colScores = headers.map((_, colIdx) => {
+          let score = 0, seen = 0;
+          for (let r=0; r<Math.min(rows.length, 100); r++) {
+            const cell = rows[r][colIdx];
+            if (cell != null && cell !== '') { seen++; if (looksLikePhone(cell)) score++; }
+          }
+          return seen ? score : -1;
+        });
+        idxTel = colScores.indexOf(Math.max(...colScores));
+        if (colScores[idxTel] <= 0) idxTel = -1;
+      }
+
+      if (idxEmpresa === -1 && rows.length) {
+        for (let i = 0; i < headers.length; i++) {
+          if (i === idxTel) continue;
+          const firstCell = String(rows[0]?.[i] || "").trim();
+          if (firstCell && /[a-zA-ZÀ-ÿ]/.test(firstCell) && !looksLikePhone(firstCell)) { idxEmpresa = i; break; }
+        }
+      }
+      return { idxTel, idxEmpresa };
+    }
+
+    $('#csvFile').addEventListener("change", (e)=>{
+      csvNumbers = [];
+      const file = e.target.files?.[0];
+      if(!file) return;
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        let text = String(reader.result || "");
+        if(!text.trim()) { alert("CSV vazio."); return; }
+        if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+
+        const delim = detectDelimRFC(text);
+        const rows = parseCSV_RFC4180(text, delim);
+        const cleaned = rows.filter(r => r && r.some(c => String(c||"").trim() !== ""));
+        if (!cleaned.length){ alert("CSV sem linhas válidas."); return; }
+
+        const header = cleaned[0].map(c => String(c||"").trim());
+        const dataRows = cleaned.slice(1);
+        const { idxTel, idxEmpresa } = detectColumns(header, dataRows);
+
+        if (idxTel === -1) { alert("❌ Não encontrei coluna de telefone."); return; }
+
+        for (const cols of dataRows) {
+          const telRaw = cols[idxTel];
+          if (!telRaw) continue;
+          const numero = normalizePhone(telRaw);
+          if (!looksLikePhone(numero)) continue;
+          const empresaVal = idxEmpresa !== -1 ? (cols[idxEmpresa] || "").trim() : "";
+          const empresa = sanitize(empresaVal) || undefined;
+          csvNumbers.push({ numero, empresa });
+        }
+
+        logLine(`📄 CSV ok: ${csvNumbers.length} números`, 'success');
+      };
+      reader.readAsText(file);
+    });
+
+    function renderCsvPreview(limit=10){
+      const body = $('#csvPreviewBody');
+      body.innerHTML = "";
+      const rows = csvNumbers.slice(0, limit);
+      if(!rows.length){ $('#csvPreview').style.display = "none"; return; }
+      for(const r of rows){
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${r.empresa || ""}</td><td>${r.numero || ""}</td>`;
+        body.appendChild(tr);
+      }
+      $('#csvPreview').style.display = "";
+    }
+
+    $('#previewCsvBtn')?.addEventListener("click", ()=> renderCsvPreview());
+
+    function collectNumbers(){
+      const manual = parseLines($('#numbers').value).map(n => ({ numero: normalizePhone(n) }));
+      const map = new Map();
+      [...manual, ...csvNumbers].forEach(o => {
+        const prev = map.get(o.numero) || {};
+        map.set(o.numero, { numero: o.numero, empresa: o.empresa || prev.empresa });
+      });
+      return [...map.values()];
+    }
+
+    function getInstanceObjects(){
+      const rows = parseLines($('#instancias').value);
+      return rows.map(r => {
+        const [nameRaw, wRaw] = r.split("|");
+        const name = (nameRaw || "").trim();
+        let weight = parseInt((wRaw||"").trim(), 10);
+        if (!Number.isFinite(weight) || weight <= 0) weight = 1;
+        return { name, weight };
+      }).filter(x => x.name);
+    }
+
+    function pickInstance(mode){
+      const list = getInstanceObjects();
+      if(!list.length) return undefined;
+      if(mode === 'rr'){ const inst = list[rrIdx % list.length].name; rrIdx++; return inst; }
+      if(mode === 'weighted'){
+        const total = list.reduce((acc, it) => acc + it.weight, 0);
+        let r = Math.random() * total;
+        for (const it of list){ if ((r -= it.weight) <= 0) return it.name; }
+        return list[list.length-1].name;
+      }
+      return list[Math.floor(Math.random()*list.length)].name;
+    }
+
+    $('#instancias').addEventListener("input", ()=>{ rrIdx = 0; });
+    $('#mode').addEventListener("change", ()=>{ rrIdx = 0; });
+
+    $('#previewBtn').addEventListener('click', ()=>{
+      if (!validateInputs()) return;
+      const nums = collectNumbers();
+      const qty = parseInt($('#qtyPerNumber').value || "1", 10);
+      const totalSends = nums.length * qty;
+      const minDelay = parseInt($('#minDelay').value || "0", 10);
+      const maxDelay = parseInt($('#maxDelay').value || "0", 10);
+      const estimatedTime = Math.ceil((totalSends * (minDelay + maxDelay) / 2) / 60);
+
+      $('#previewContent').innerHTML = `
+        <div style="margin-bottom:0.75rem;"><strong>📱 Números:</strong> ${nums.length}</div>
+        <div style="margin-bottom:0.75rem;"><strong>📤 Envios/número:</strong> ${qty}</div>
+        <div style="margin-bottom:0.75rem;"><strong>📊 Total:</strong> ${totalSends}</div>
+        <div style="margin-bottom:0.75rem;"><strong>⏱️ Tempo:</strong> ~${estimatedTime} min</div>
+        <div><strong>🔄 Modo:</strong> ${$('#mode').selectedOptions[0].text}</div>
+      `;
+      $('#previewModal').style.display = 'flex';
+    });
+
+    $('#previewCancelBtn').addEventListener('click', ()=>{ $('#previewModal').style.display = 'none'; });
+    $('#previewConfirmBtn').addEventListener('click', ()=>{ $('#previewModal').style.display = 'none'; executeSend(); });
+
+    $('#cancelBtn').addEventListener("click", ()=>{ cancelFlag = true; logLine("Cancelamento solicitado.", 'warning'); });
+    $('#sendBtn').addEventListener("click", ()=>{ if (validateInputs()) $('#previewBtn').click(); });
+
+    async function executeSend(){
+      const minDelay = parseInt($('#minDelay').value || "0",10);
+      const maxDelay = parseInt($('#maxDelay').value || "0",10);
+      const qty = Math.max(1, parseInt($('#qtyPerNumber').value || "1",10));
+      const msgType = $('#msgType').value;
+      const msgValue = $('#messageInput').value.trim();
+      const usarIA = $('#useAI').checked;
+      const mode = $('#mode').value;
+      const nums = collectNumbers();
+
+      setBusy(true);
+      cancelFlag = false;
+      $('#log').textContent = "";
+      const totalSends = nums.length * qty;
+      let done = 0;
+      resetStats(totalSends);
+      setProgress(0, totalSends);
+      rrIdx = 0;
+
+      logLine(`Início: ${new Date().toLocaleString()}`, 'info');
+      $('#statusLine').textContent = `Enviando ${totalSends} mensagens...`;
+      $('#logStatus').textContent = "Processando";
+      $('#logStatus').className = "badge-elite badge-warning";
+
+      for (const item of nums){
+        if (cancelFlag) break;
+        for (let i=0; i<qty; i++){
+          if (cancelFlag) break;
+          const instancia = pickInstance(mode);
+          const payload = { numero: item.numero, texto: sanitize(msgValue), delayMinimo: minDelay, delayMaximo: maxDelay, instancia, empresa: item.empresa, usarIA, mensagemTipo: msgType };
+
+          try{
+            logLine(`POST → ${item.numero}`, 'info');
+            const res = await fetch(WEBHOOK_URL, { method: "POST", headers: { "Content-Type":"application/json" }, body: JSON.stringify(payload) });
+            if (res.ok){ logLine(`OK ← ${item.numero}`, 'success'); updateStats('success'); }
+            else { logLine(`FAIL ← ${item.numero}`, 'error'); updateStats('fail'); }
+          } catch(err){ logLine(`ERRO ← ${item.numero}`, 'error'); updateStats('fail'); }
+
+          done++;
+          setProgress(done, totalSends);
+          if (done < totalSends && !cancelFlag){
+            const waitSec = randBetween(minDelay, maxDelay);
+            $('#statusLine').textContent = `Aguardando ${waitSec}s... (${done}/${totalSends})`;
+            await sleep(waitSec*1000);
+          }
+        }
+      }
+
+      if (cancelFlag){ $('#statusLine').textContent = `Cancelado. ${done}/${totalSends}`; $('#logStatus').textContent = "Cancelado"; $('#logStatus').className = "badge-elite badge-warning"; }
+      else { $('#statusLine').textContent = `Concluído! ${done}/${totalSends}`; logLine(`Fim: ${new Date().toLocaleString()}`, 'success'); $('#logStatus').textContent = stats.fail === 0 ? "Sucesso" : "Concluído"; $('#logStatus').className = stats.fail === 0 ? "badge-elite badge-success" : "badge-elite badge-warning"; }
+      setBusy(false);
+    }
+
+    function extractPhonesFromCSVText(text){
+      if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+      const delim = detectDelimRFC(text);
+      const rows = parseCSV_RFC4180(text, delim);
+      const cleaned = rows.filter(r => r && r.some(c => String(c||"").trim() !== ""));
+      if(!cleaned.length) return [];
+      const header = cleaned[0].map(c => String(c||"").trim());
+      const dataRows = cleaned.slice(1);
+      const { idxTel } = detectColumns(header, dataRows);
+      if(idxTel === -1) return [];
+      const out = [];
+      for(const cols of dataRows){ const telRaw = cols[idxTel]; if(!telRaw) continue; const numero = normalizePhone(telRaw); if(!looksLikePhone(numero)) continue; out.push(numero); }
+      return out;
+    }
+
+    const csvTests = [
+      { name: "Vírgula", expected: 1, data: "empresa,telefone\nACME,5599999999" },
+      { name: "Ponto vírgula", expected: 1, data: "empresa;telefone\nBeta;551199999999" },
+      { name: "TAB", expected: 1, data: "empresa\ttelefone\nGamma\t558888888888" },
+      { name: "Aspas", expected: 1, data: "empresa,telefone\n\"Loja\",557777777777" }
+    ];
+
+    $('#autoTestCsvBtn')?.addEventListener("click", ()=>{
+      logLine("Auto-testes CSV iniciados...", 'info');
+      let allPass = true;
+      for(const t of csvTests){
+        try{
+          const found = extractPhonesFromCSVText(t.data);
+          const passed = found.length === t.expected;
+          if(passed){ logLine(`✅ ${t.name} → ok`, 'success'); }
+          else{ allPass = false; logLine(`❌ ${t.name} → falhou`, 'error'); }
+        }catch(err){ allPass = false; logLine(`❌ ${t.name} → erro`, 'error'); }
+      }
+      $('#logStatus').textContent = allPass ? "Todos passaram" : "Falhou";
+      $('#logStatus').className = allPass ? "badge-elite badge-success" : "badge-elite badge-error";
+    });
+
+    $('#downloadLog').addEventListener('click', ()=>{
+      const blob = new Blob([$('#log').textContent], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `log-${new Date().toISOString().split('T')[0]}.txt`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    $('#clearLog').addEventListener('click', ()=>{ $('#log').textContent = ""; $('#logStatus').textContent = 'Pronto'; $('#logStatus').className = 'badge-elite badge-info'; });
+
+    $('#messageInput').addEventListener('input', (e) => { $('#charCount').textContent = e.target.value.length.toLocaleString('pt-BR'); });
+
+    $('#themeToggle').addEventListener('click', ()=>{
+      const root = document.documentElement;
+      const isDark = getComputedStyle(root).getPropertyValue('--bg-primary').trim() === '#0a0e14';
+      if (isDark) {
+        root.style.setProperty('--bg-primary', '#ffffff');
+        root.style.setProperty('--bg-secondary', '#f9fafb');
+        root.style.setProperty('--bg-card', '#f3f4f6');
+        root.style.setProperty('--border-primary', '#e5e7eb');
+        root.style.setProperty('--text-primary', '#111827');
+        root.style.setProperty('--text-secondary', '#6b7280');
+      } else {
+        root.style.setProperty('--bg-primary', '#0a0e14');
+        root.style.setProperty('--bg-secondary', '#151922');
+        root.style.setProperty('--bg-card', '#1a1f2e');
+        root.style.setProperty('--border-primary', '#2a3142');
+        root.style.setProperty('--text-primary', '#e8eaed');
+        root.style.setProperty('--text-secondary', '#9aa0a9');
+      }
+    });
+
+    logLine('Sistema Elite Pro iniciado. Pronto! 🚀', 'success');
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
